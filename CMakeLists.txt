@@ -1,8 +1,12 @@
-cmake_minimum_required(VERSION 3.23.2)
+cmake_minimum_required(VERSION 3.28.3)
 project(ProjectName)
+message(STATUS "==== Configuring ${PROJECT_NAME} for ${CMAKE_SYSTEM_NAME} ====")
+message(STATUS "${PROJECT_NAME} VERSION: ${GIT_TAG}")
 
-# Generate compiler commands for C/C++ intellisense, SonarLint, etc.
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_GENERATOR "Ninja")
+if(NOT CMAKE_GENERATOR STREQUAL "Ninja")
+    message(FATAL_ERROR "This project requires the Ninja generator.")
+endif()
 
 # Create version header and CMake variable
 execute_process(
@@ -11,12 +15,12 @@ execute_process(
     OUTPUT_VARIABLE GIT_TAG
 )
 
-message(STATUS "==== Configuring ${PROJECT_NAME} for ${CMAKE_SYSTEM_NAME} ====")
-message(STATUS "${PROJECT_NAME} VERSION: ${GIT_TAG}")
-
 # C/C++ Standards
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Generate compiler commands for C/C++ intellisense, SonarLint, etc.
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 if (MSVC)
     # warning level 4
@@ -37,3 +41,5 @@ if (WIN32)
     #file(MAKE_DIRECTORY ${DIR_PROGRAMDATA_HELIOS})
     #file(MAKE_DIRECTORY "${DIR_PROGRAMDATA_HELIOS}/config")
 endif (WIN32)
+
+add_subdirectory(example_modules)
