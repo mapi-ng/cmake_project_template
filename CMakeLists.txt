@@ -3,9 +3,11 @@ project(ProjectName)
 message(STATUS "==== Configuring ${PROJECT_NAME} for ${CMAKE_SYSTEM_NAME} ====")
 message(STATUS "${PROJECT_NAME} VERSION: ${GIT_TAG}")
 
-set(CMAKE_GENERATOR "Ninja")
-if(NOT CMAKE_GENERATOR STREQUAL "Ninja")
-    message(FATAL_ERROR "This project requires the Ninja generator.")
+if (UNIX)
+    set(CMAKE_GENERATOR "Ninja")
+    if(NOT CMAKE_GENERATOR STREQUAL "Ninja")
+        message(FATAL_ERROR "This project requires the Ninja generator.")
+    endif()
 endif()
 
 # Create version header and CMake variable
