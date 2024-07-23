@@ -1,6 +1,8 @@
-add_executable(modules_example example_modules.cpp)
+add_library(example_modules)
 
-target_sources(modules_example PUBLIC
+target_sources(example_modules PUBLIC
     FILE_SET CXX_MODULES
     FILES adder.ixx
 )
+
+add_subdirectory(test)
