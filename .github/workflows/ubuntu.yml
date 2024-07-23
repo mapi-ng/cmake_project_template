@@ -33,7 +33,6 @@ jobs:
       id: strings
       shell: bash
       run: |
-        echo $GITHUB_WORKSPACE
         echo "build-output-dir=$GITHUB_WORKSPACE/build" >> "$GITHUB_OUTPUT"
 
     - name: Configure CMake
