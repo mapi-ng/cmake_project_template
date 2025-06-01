@@ -1,0 +1,66 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.elf
+*.ko
+*.lo
+*.o
+*.obj
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Compiled Dynamic libraries
+*.so
+*.so.*
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.lo
+*.a
+
+# Build artifacts
+build*
+
+# Test Report
+TestReport.txt
+Testing
+
+#CTest folder
+Testing
+
+
+# VSCode files
+.vscode
+.vs
+
+# CMake user files
+CMakeLists.txt.user
+
+# Log files
+*.log
+*.log.[0-9]
+
+# Auto-generated version header
+git_version_string.h
